@@ -16,7 +16,7 @@ app.use(logger("dev"));
 
 mongoose.connect(config.database, function(err){
     if(err) throw err;
-    console.log("Suffully connected to the database")
+    console.log("Successfully connected to the database")
 })
 
 app.listen(port, function(){
