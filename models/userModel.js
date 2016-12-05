@@ -20,10 +20,8 @@ var userSchema = new Schema({
         required: true
     },
     userAddress:{
-        type: String,
         state: String,
-        address: String,
-        required: true
+        address: String
     },
     registry:[{
         type:Schema.Types.ObjectId,
