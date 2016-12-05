@@ -12,4 +12,18 @@ registryRoute.route("/")
              })
 })
 
+    .post(function(req, res){
+        var registry = new Registry(req.body);
+    
+        registry.owner = req.user._id;
+    
+        registry.save(function(err, newRegistry){
+            if(err){
+                res.status(500).send(err);
+            }else{
+                res.status(201).send(newRegistry);
+            }
+        })
+})
+
 module.exports = registryRoute;

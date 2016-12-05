@@ -12,18 +12,17 @@ var userSchema = new Schema({
         required: true
     },
     email:{
-        type: String
+        type: String,
+        required: true
     },
     password:{
         type: String,
         required: true
     },
-    address:{
+    userAddress:{
         type: String,
-        required: true
-    },
-    state:{
-        type: String,
+        state: String,
+        address: String,
         required: true
     },
     registry:[{
