@@ -38,7 +38,7 @@ app.service("UserService", ["$http", "TokenService", function ($http, TokenServi
 	}
 
 	this.login = function (user) {
-		return $http.post("auth/login", user)
+		return $http.post("/auth/login", user)
 			.then(function (response) {
 
 				TokenService.setToken(response.data.token);

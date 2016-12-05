@@ -1,4 +1,4 @@
-var app = angular.module("GiftRegistryApp", ["ngRoute"]);
+var app = angular.module("GiftRegistryApp", ["ngRoute","Auth"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
 	$routeProvider
