@@ -12,20 +12,19 @@ var userSchema = new Schema({
         required: true
     },
     email:{
-        type: String
+        type: String,
+        required: true
     },
     password:{
         type: String,
         required: true
     },
-    address:{
+    userAddress:{
         type: String,
+        state: String,
+        address: String,
         required: true
     },
-    State:{
-        type: String,
-        required: true
-    }
     registry:[{
         type:Schema.Types.ObjectId,
         ref: "Registry"

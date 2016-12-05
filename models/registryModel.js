@@ -11,10 +11,13 @@ var registrySchema = new Schema({
     price:{
         type: Number
     },
+    isPurchased:{
+        type: Boolean
+    },
     owner:{
         type: ObjectId,
         ref:"User"
-    }
+    } 
 })
 
 module.exports = mongoose.model("Registry", registrySchema)
