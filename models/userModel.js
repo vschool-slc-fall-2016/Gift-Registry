@@ -22,10 +22,10 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    State:{
+    state:{
         type: String,
         required: true
-    }
+    },
     registry:[{
         type:Schema.Types.ObjectId,
         ref: "Registry"
