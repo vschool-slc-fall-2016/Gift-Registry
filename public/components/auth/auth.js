@@ -30,3 +30,49 @@ app.service("TokenService", ["$localStorage", function ($localStorage) {
 		delete $localStorage.token;
 	};
 }]);
+
+app.service("UserService", ["$http", "TokenService", function ($http, TokenService) {
+
+	this.signup = function (user) {
+		return $http.post("/auth/signup", user);
+	}
+
+	this.login = function (user) {
+		return $http.post("auth/login", user)
+			.then(function (response) {
+
+				TokenService.setToken(response.data.token);
+			})
+	}
+
+	this.logout = function () {
+		TokenService.removeToken();
+	}
+
+	this.isAuthenticated = function () {
+		return !!TokenService.getToken();
+	}
+}]);
+
+app.service("AuthInterceptor", ["$q", "$location", "TokenService", function ($q, $location, TokenService) {
+	this.request = function (config) {
+		var token = TokenService.getToken();
+		if (token) {
+			config.headers = config.headers || {};
+			config.headers.Authorization = "Bearer " + token;
+		}
+		return config;
+	};
+
+	this.responseError = function (response) {
+		if (response.status === 401) {
+			TokenService.removeToken();
+			$location.path("/login");
+		}
+		return $q.reject(response);
+	}
+}]);
+
+app.config(function ($httpProvider) {
+	$httpProvider.interceptors.push('AuthInterceptor');
+});

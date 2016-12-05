@@ -6,7 +6,7 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/home/home.html"
 		})
 		.when("/santa", {
-			templateUrl: "components/santa/santa.html",
-			controller: "SantaCtrl"
+			templateUrl: "components/registry/registry.html",
+			controller: "RegistryCtrl"
 		});
 }]);
