@@ -1,13 +1,13 @@
-var app = angular.module("GiftRegistryApp", ["ngRoute", "Auth"]);
+var app = angular.module("GiftRegistryApp", ["ngRoute"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
 	$routeProvider
 		.when("/", {
 			templateUrl: "components/home/home.html"
 		})
-		.when("/santa", {
-			templateUrl: "components/santa/santa.html",
-			controller: "SantaCtrl"
+		.when("/registry", {
+			templateUrl: "components/registry/registry.html",
+			controller: "RegistryController"
 		});
 }]);
 
