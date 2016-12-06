@@ -9,64 +9,59 @@ app.service("ProductService", ["$http", function ($http) {
         };
         return $http.jsonp("https://api.walmartlabs.com/v1/search?apiKey=gz24h8emgntbstsayg43jc42&query=baby&numItems=25", config)
             .then(function (response) {
-                console.log(response.data.items);
                 return response.data;
             }, function (response) {
                 console.log("Error" + response.status + " : " + response.statusText)
             });
     }
-    this.getRegistry= function(){
+    this.getRegistry = function () {
         return $http.get("/api/registry")
-            .then(function(response){
-             return respone.data
-        })
+            .then(function (response) {
+                return response.data
+            }, function (response) {
+                console.log("Error" + response.status + ":" + response.statusText);
+            })
     }
-    this.createRegistry = function(item){
+    this.createRegistry = function (item) {
         return $http.post("/api/registry", item)
-                    .then(function(response){
-                        console.log(response.data)
-                        return response.data;
-        }, function(response){
-            console.log("Error" + response.status + ":" + response.statusText);
-        })
+            .then(function (response) {
+                return response.data;
+            }, function (response) {
+                console.log("Error" + response.status + ":" + response.statusText);
+            })
     }
-    
-    
-    
+
+
+
 }])
 
 app.controller("ProductController", ["ProductService", "$scope", function (ProductService, $scope) {
     (function getProduct() {
         ProductService.getProduct()
             .then(function (response) {
-                    $scope.products = response.items;
+                $scope.products = response.items;
             })
 
     })();
+    
+     $scope.createRegistry = function (baby, index) {
+        var newitem = $scope.products[index];
+         console.log(newitem);
+        ProductService.createRegistry(newitem)
+            .then(function (response) {
+                
+            })
+    };
+    
 
 }])
 
-app.controller("RegistryController", ["ProductService", "$scope", function(ProductService, $scope){
-    $scope.getRegisty = function(){
-    ProductService.getRegistry()
-        .then(function(response){
-            $scope.registry = registry
-    })
-};
-    
-     ProductService.getProduct()
+app.controller("RegistryController", ["ProductService", "$scope", function (ProductService, $scope) {
+    (function getRegisty() {
+        ProductService.getRegistry()
             .then(function (response) {
-                    $scope.products = response.items;
+                $scope.registry = response;
             })
-    
-    $scope.createRegistry = function(item,index){
-        var newitem = $scope.products[index];
-         ProductService.createRegistry(newitem)
-             .then(function(response){
-                $scope.registry.push(response);
-         })
-    };
-    
-         
-     
+    })();
+
 }])
