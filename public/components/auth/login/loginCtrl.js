@@ -5,7 +5,7 @@ app.controller("LoginCtrl", ["$scope", "$location", "UserService", function ($sc
 	$scope.login = function (user) {
 		UserService.login(user)
 			.then(function (response) {
-				$location.path("/registry");
+				$location.path("/product");
 			}, function (response) {
 				alert(response.data.message);
 			});
