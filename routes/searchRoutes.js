@@ -9,8 +9,6 @@ searchRoute.route("/")
 			if (err) res.status(500).send(err);
 			res.send(user);
 		})
-
 	})
-
 
 module.exports = searchRoute;
