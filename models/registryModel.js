@@ -8,8 +8,11 @@ var registrySchema = new Schema({
     name:{
         type: String
     },
-    price:{
+   salePrice:{
         type: Number
+    },
+    mediumImage:{
+        type: String
     },
     isPurchased:{
         type: Boolean

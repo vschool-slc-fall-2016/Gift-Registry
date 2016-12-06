@@ -7,8 +7,10 @@ var config = require("./config");
 var logger = require("morgan");
 var expressJwt = require("express-jwt")
 var port = process.env.PORT || 8000;
+var cors = require("cors");
 
-app.use(bodyParser.json())
+
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")))
 app.use(logger("dev"));
 

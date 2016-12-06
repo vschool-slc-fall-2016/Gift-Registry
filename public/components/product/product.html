@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+     <a href="#/registry"> <button type="button" class="btn btn-danger" ng-click>My Registry</button></a>
+    </div>
+</div>
+  
+   <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-3" ng-repeat="baby in products track by $index">
+            <div>
+               
+                <div class="panel-body">
+                    <img ng-src="{{baby.mediumImage}}">
+                     <div>{{baby.name.slice(0, 12)}}</div>
+                    <p>Price:{{baby.salePrice}}</p>
+                   <button type="button" class="btn btn-danger" ng-click="createRegistry(baby, $index)">Add to Registry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
