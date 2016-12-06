@@ -27,10 +27,16 @@ registryRoute.route("/")
 	})
 })
 
-//registryRoute.route("/:registryId")
-//    .delete(function(req,res){
-//        
-//})
+registryRoute.route("/:registryId")
+    .delete(function(req,res){
+        Item.findOneAndRemove({id: req.params.registryId, owner: req.user._id}, function(err, item){
+            if(err){
+                res.status(500).send(err);
+            }else{
+                res.send(item);
+            }
+        })
+})
 
 
 module.exports = registryRoute;
