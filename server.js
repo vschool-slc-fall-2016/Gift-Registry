@@ -27,6 +27,8 @@ app.use("/api", expressJwt({
 app.use("/api/profile", require("./routes/profileRoutes"));
 app.use("/api/registry", require("./routes/registryRoutes"));
 app.use("/auth", require("./routes/authRoutes"));
+app.use("/search", require("./routes/searchRoutes"));
+
 
 app.listen(port, function () {
 	console.log("Server is listening on port: " + port)
