@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-3" ng-repeat="item in registry track by $index">
+            <div>
+               
+                <div class="panel-body">
+                    <img ng-src="{{item.mediumImage}}">
+                     <div>{{item.name.slice(0, 12)}}</div>
+                    <p>Price:{{item.salePrice}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
