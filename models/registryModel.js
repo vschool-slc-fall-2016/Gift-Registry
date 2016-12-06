@@ -4,7 +4,7 @@ var ObjectId = Schema.Types.ObjectId;
 
 //one user only have one registry
 //
-var registrySchema = new Schema({
+var itemSchema = new Schema({
     name:{
         type: String
     },
@@ -23,4 +23,4 @@ var registrySchema = new Schema({
     } 
 })
 
-module.exports = mongoose.model("Registry", registrySchema)
+module.exports = mongoose.model("Item", itemSchema)

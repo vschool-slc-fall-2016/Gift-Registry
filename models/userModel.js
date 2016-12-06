@@ -23,7 +23,7 @@ var userSchema = new Schema({
         state: String,
         address: String
     },
-    registry:[{
+    items:[{
         type:Schema.Types.ObjectId,
         ref: "Registry"
     }]
