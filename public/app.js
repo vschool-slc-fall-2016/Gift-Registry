@@ -9,7 +9,6 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/product/product.html",
 			controller: "ProductController"
 		})
-<<<<<<< HEAD
 		.when("/registry", {
 			templateUrl: "components/product/registry.html",
 			controller: "RegistryController"
@@ -18,15 +17,14 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/search/search.html",
 			controller: "SearchController"
 		})
+        .when("/partner", {
+            templateUrl: "components/become_partner/become_partner.html",
+            controller: "PartnerController"
+        })
+        .when("/about", {
+            templateUrl: "components/about/about.html",
+            controller: "AboutController"
+        })
 }]);
-=======
-         .when("/registry",{
-            templateUrl: "components/product/registry.html",
-            controller: "RegistryController"
-    })
-}]);
 
 
-
-
->>>>>>> master

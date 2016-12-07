@@ -1,6 +1,5 @@
 var app = angular.module("GiftRegistryApp");
 app.service("ProductService", ["$http", function ($http) {
-<<<<<<< HEAD
 	this.getProduct = function () {
 		var config = {
 			params: {
@@ -88,7 +87,6 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
 
 			})
 	}
-=======
     this.getProduct = function () {
         var config = {
             params: {
@@ -168,5 +166,4 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
         })
     }
     
->>>>>>> master
 }])
