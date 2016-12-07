@@ -8,7 +8,6 @@ app.service("ProductService", ["$http", function ($http) {
 		};
 		return $http.jsonp("https://api.walmartlabs.com/v1/search?apiKey=gz24h8emgntbstsayg43jc42&query=baby&numItems=25", config)
 			.then(function (response) {
-				console.log(response.data.items);
 				return response.data;
 			}, function (response) {
 				console.log("Error" + response.status + " : " + response.statusText)
@@ -17,22 +16,30 @@ app.service("ProductService", ["$http", function ($http) {
 	this.getRegistry = function () {
 		return $http.get("/api/registry")
 			.then(function (response) {
-				return respone.data
+				return response.data
+			}, function (response) {
+				console.log("Error" + response.status + ":" + response.statusText);
 			})
 	}
 	this.createRegistry = function (item) {
 		return $http.post("/api/registry", item)
 			.then(function (response) {
-				console.log(response.data)
 				return response.data;
 			}, function (response) {
 				console.log("Error" + response.status + ":" + response.statusText);
 			})
 	}
 
-
-
-}])
+	this.deleteItem = function (item) {
+		return $http.delete("/api/registry/" + item.id)
+			.then(function (response) {
+				console.log(response);
+				return response.data;
+			}, function (response) {
+				console.log("Error" + response.status + ":" + response.statusText);
+			})
+	}
+}]);
 
 app.controller("ProductController", ["ProductService", "$scope", function (ProductService, $scope) {
 	(function getProduct() {
@@ -43,15 +50,23 @@ app.controller("ProductController", ["ProductService", "$scope", function (Produ
 
 	})();
 
-}])
-
-app.controller("RegistryController", ["ProductService", "$scope", function (ProductService, $scope) {
-	$scope.getRegisty = function () {
-		ProductService.getRegistry()
+	$scope.createRegistry = function (baby, index) {
+		var newitem = $scope.products[index];
+		console.log(newitem);
+		ProductService.createRegistry(newitem)
 			.then(function (response) {
-				$scope.registry = registry
+
 			})
 	};
+}]);
+
+app.controller("RegistryController", ["ProductService", "$scope", function (ProductService, $scope) {
+	(function getRegisty() {
+		ProductService.getRegistry()
+			.then(function (response) {
+				$scope.registry = response;
+			})
+	})();
 
 	ProductService.getProduct()
 		.then(function (response) {
@@ -66,6 +81,10 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
 			})
 	};
 
+	$scope.deleteItem = function (item, index) {
+		ProductService.deleteItem(item, index)
+			.then(function (response) {
 
-
+			})
+	}
 }])
