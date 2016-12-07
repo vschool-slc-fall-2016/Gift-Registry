@@ -21,4 +21,12 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/search/search.html",
 			controller: "SearchController"
 		})
+        .when("/partner", {
+            templateUrl: "components/become_partner/become_partner.html",
+            controller: "PartnerController"
+        })
+        .when("/about", {
+            templateUrl: "components/about/about.html",
+            controller: "AboutController"
+        })
 }]);

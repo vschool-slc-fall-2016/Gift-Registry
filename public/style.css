@@ -26,7 +26,6 @@
     font-family: 'Raleway', sans-serif;
 }
 
-
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
@@ -39,6 +38,23 @@
     padding: 15px;
 }
 
+.red{
+    color:darkcyan;
+    }
+.form-area
+{
+    background-color: #FAFAFA;
+	padding: 10px 40px 60px;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+	}
+
+
+.col-md-6about {
+    width: 33%;
+    height: 33%;
+    display: inline-block;
+}
 
 .row {
     display: block;
