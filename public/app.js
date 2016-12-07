@@ -1,4 +1,4 @@
-var app = angular.module("GiftRegistryApp", ["ngRoute","Auth"]);
+var app = angular.module("GiftRegistryApp", ["ngRoute", "Auth"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
 	$routeProvider
@@ -9,6 +9,17 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/product/product.html",
 			controller: "ProductController"
 		})
+<<<<<<< HEAD
+		.when("/registry", {
+			templateUrl: "components/product/registry.html",
+			controller: "RegistryController"
+		})
+		.when("/search", {
+			templateUrl: "components/search/search.html",
+			controller: "SearchController"
+		})
+}]);
+=======
          .when("/registry",{
             templateUrl: "components/product/registry.html",
             controller: "RegistryController"
@@ -18,3 +29,4 @@ app.config(["$routeProvider", function ($routeProvider) {
 
 
 
+>>>>>>> master

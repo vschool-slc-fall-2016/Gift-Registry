@@ -1,0 +1,10 @@
+<h1>Search</h1>
+
+<div class="row">
+	<div class="col-sm-offset-2 col-sm-3">
+		<div class="well" ng-repeat="item in Search track by $index">
+			<h3>{{ item.firstName +" " + item.lastName }}</h3>
+			<button class="btn btn-primary">Go to Registry</button>
+		</div>
+	</div>
+</div>
