@@ -9,20 +9,20 @@ app.service("SearchService", ["$http", function ($http) {
 				return response.data;
 			})
 	}
-
+    
 
 }])
 
 app.controller("SearchController", ["$scope", "SearchService", function ($scope, SearchService) {
 
-	$scope.Search = [];
-	(function getSearch() {
-		SearchService.getSearch()
-			.then(function (response) {
-				console.log(response)
-				$scope.Search = response;
-			})
-	})();
-
+    $scope.Search = [];
+    (function getSearch() {
+        SearchService.getSearch()
+            .then(function (response) {
+                console.log(response)
+                $scope.Search = response;
+            })
+    })();
+   
 
 }])
