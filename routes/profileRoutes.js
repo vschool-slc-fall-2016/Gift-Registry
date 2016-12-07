@@ -11,15 +11,16 @@ profileRoute.route("/")
     })    
     
 })
-    .post(function(req, res){
-        var profile = new User(req.body);
-//        profile.firstName = req.user._id;
-    
-        profile.save(function(err, updateProfile){
-            if(err) res.status(500).send(err);
-            res.status(201).send(updateProfile);
-        })
-})
 
- 
+profileRoute.route("/:userid")
+    .put(function(req, res){
+       User.findByIdAndUpdate(req.params.userid, req.body, {new: true},function(err, updateUser){
+           if(err){
+               res.status(500).send(err)
+           }else{
+               res.send(updateUser);
+           }
+       })
+})
+  
 module.exports = profileRoute;

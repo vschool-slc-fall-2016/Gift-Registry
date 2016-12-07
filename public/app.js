@@ -22,7 +22,12 @@ app.config(["$routeProvider", function ($routeProvider) {
          .when("/registry",{
             templateUrl: "components/product/registry.html",
             controller: "RegistryController"
-    })
+         })
+         .when("/profile",{
+             templateUrl: "components/profile/profile.html",
+             controller: "ProfileController"
+         
+        })
 }]);
 
 
