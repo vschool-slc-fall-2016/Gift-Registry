@@ -9,6 +9,7 @@ app.service("SearchService", ["$http", function ($http) {
 				return response.data;
 			})
 	}
+    
 
 	this.getRegistryList = function (user) {
 		return $http.get("/search/" + user._id)

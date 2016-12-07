@@ -1,6 +1,5 @@
 var app = angular.module("GiftRegistryApp");
 app.service("ProductService", ["$http", function ($http) {
-
 	this.getProduct = function () {
 		var config = {
 			params: {
@@ -78,5 +77,4 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
 
 			})
 	}
-
-}])
+}]);
