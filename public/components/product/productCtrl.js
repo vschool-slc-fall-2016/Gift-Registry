@@ -74,7 +74,7 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
 	$scope.deleteItem = function (item, index) {
 		ProductService.deleteItem(item, index)
 			.then(function (response) {
-
+                $scope.registry.splice(index, 1);
 			})
 	}
 }]);
