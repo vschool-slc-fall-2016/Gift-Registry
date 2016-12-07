@@ -33,13 +33,14 @@ app.service("ProductService", ["$http", function ($http) {
 	this.deleteItem = function (item) {
 		return $http.delete("/api/registry/" + item.id)
 			.then(function (response) {
-				console.log(response);
 				return response.data;
 			}, function (response) {
 				console.log("Error" + response.status + ":" + response.statusText);
 			})
 	}
-}]);
+
+
+}])
 
 app.controller("ProductController", ["ProductService", "$scope", function (ProductService, $scope) {
 	(function getProduct() {
@@ -58,7 +59,9 @@ app.controller("ProductController", ["ProductService", "$scope", function (Produ
 
 			})
 	};
-}]);
+
+
+}])
 
 app.controller("RegistryController", ["ProductService", "$scope", function (ProductService, $scope) {
 	(function getRegisty() {
@@ -67,19 +70,6 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
 				$scope.registry = response;
 			})
 	})();
-
-	ProductService.getProduct()
-		.then(function (response) {
-			$scope.products = response.items;
-		})
-
-	$scope.createRegistry = function (item, index) {
-		var newitem = $scope.products[index];
-		ProductService.createRegistry(newitem)
-			.then(function (response) {
-				$scope.registry.push(response);
-			})
-	};
 
 	$scope.deleteItem = function (item, index) {
 		ProductService.deleteItem(item, index)

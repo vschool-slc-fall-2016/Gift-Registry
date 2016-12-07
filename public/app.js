@@ -9,7 +9,6 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/product/product.html",
 			controller: "ProductController"
 		})
-
 		.when("/registry", {
 			templateUrl: "components/product/registry.html",
 			controller: "RegistryController"
@@ -18,13 +17,5 @@ app.config(["$routeProvider", function ($routeProvider) {
 			templateUrl: "components/search/search.html",
 			controller: "SearchController"
 		})
-
-         .when("/registry",{
-            templateUrl: "components/product/registry.html",
-            controller: "RegistryController"
-    })
 }]);
-
-
-
 

@@ -5,15 +5,22 @@ var Item = require("../models/registryModel")
 searchRoute.route("/")
 	.get(function (req, res) {
 		User.find(function (err, user) {
-			console.log(user);
 			if (err) res.status(500).send(err);
 			res.send(user);
 		})
 	})
 
-    
+searchRoute.route('/:userId')
+	.get(function (req, res) {
+		console.log(req.params.userId);
+		Item.find({
+			"owner": req.params.userId
+		}, function (err, registry) {
+			if (err) res.sataus(500).send(err);
+			res.send(registry)
+		})
+	})
 
-       
-           
+
 
 module.exports = searchRoute;

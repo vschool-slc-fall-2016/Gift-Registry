@@ -22,11 +22,12 @@ var userSchema = new Schema({
     userAddress:{
         state: String,
         address: String
-    },
-    items:[{
-        type:Schema.Types.ObjectId,
-        ref: "Registry"
-    }]
+    }
+//    items:[{
+//        //should only have ObjectId as it is defined as variable above?
+//		type:ObjectId,
+//        ref: "Registry"
+//    }]
 })
 
 module.exports = mongoose.model("User", userSchema);
