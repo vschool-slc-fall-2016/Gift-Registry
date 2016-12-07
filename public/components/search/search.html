@@ -1,10 +1,23 @@
 <h1>Search</h1>
 
 <div class="row">
-	<div class="col-sm-offset-2 col-sm-3">
-		<div class="well" ng-repeat="item in Search track by $index">
-			<h3>{{ item.firstName +" " + item.lastName }}</h3>
-			<button class="btn btn-primary">Go to Registry</button>
+	<div class="col-sm-3">
+		<div class="well" ng-repeat="user in Search track by $index">
+			<h3>{{ user.firstName +" " + user.lastName }}</h3>
+			<button class="btn btn-primary" ng-Click="getList(user)">Go to Registry</button>
+		</div>
+	</div>
+	<div class="col-sm-9">
+		<div class="row">
+
+			<div class="col-sm-3" ng-repeat="item in List track by $index">
+				<div class="well">
+					<img ng-src="{{item.mediumImage}}">
+					<div class="center">{{item.name.slice(0,22)}}</div>
+					<p>Price: ${{item.salePrice}}</p>
+					<button class="btn btn-danger btn xs">Buy</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
