@@ -122,7 +122,6 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
     this.deleteItem = function(item){
         return $http.delete("/api/registry/" + item.id)
             .then(function(response){
-                console.log(response);
                 return response.data;
         }, function(response){
                 console.log("Error" + response.status + ":" + response.statusText);
@@ -162,7 +161,7 @@ app.controller("RegistryController", ["ProductService", "$scope", function (Prod
     })();
      
     $scope.deleteItem = function(item, index){
-        ProductService.deleteItem(item, index)
+        ProductService.deleteItem(item,index)
             .then(function(response){
                 
         })
