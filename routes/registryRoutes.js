@@ -29,11 +29,11 @@ registryRoute.route("/")
 
 registryRoute.route("/:registryId")
     .delete(function(req,res){
-        Item.findOneAndRemove({id: req.params.registryId, owner: req.user._id}, function(err, item){
+        Item.findOneAndRemove(req.params.registryId, function(err, deleteitem){
             if(err){
                 res.status(500).send(err);
             }else{
-                res.send(item);
+                res.send(deleteitem);
             }
         })
 })
