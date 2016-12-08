@@ -33,6 +33,7 @@ app.service("ProductService", ["$http", function ($http) {
 	this.deleteItem = function (item) {
 		return $http.delete("/api/registry/" + item.id)
 			.then(function (response) {
+                console.log(response.data)
 				return response.data;
 			}, function (response) {
 				console.log("Error" + response.status + ":" + response.statusText);

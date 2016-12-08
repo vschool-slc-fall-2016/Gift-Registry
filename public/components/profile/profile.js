@@ -11,8 +11,8 @@ app.service("ProfileService", ["$http", function($http){
     
     }
     
-    this.updateProfile = function(user){
-        return $http.put("/api/profile", user._id)
+    this.updateProfile = function(itemId){
+        return $http.put("/api/profile", itemId)
             .then(function(response){
                 return response.data
         })
@@ -24,13 +24,14 @@ app.controller("ProfileController", ["$scope", "ProfileService", function($scope
     (function getProfile(){
         ProfileService.getProfile()
             .then(function(response){
-                console.log(response)
+               // console.log(response)
                 $scope.profile = response;
         })
     })();
     
-    $scope.updateProfile = function(user){
-        ProfileService.updateProfile(user)
+    $scope.updateProfile = function(){
+        var itemId = $scope.profile._id
+        ProfileService.updateProfile(itemId)
             .then(function(response){
                console.log(response);
                $scope.profile = response;
